@@ -1,6 +1,7 @@
 @startuml journal
 
-class Program {
+class Program 
+{
     + nu()
     }Main()
     + DisplayMe
