@@ -1,19 +1,14 @@
 @startuml journal
 
-class Program 
+class Journal 
 {
-    + nu()
-    }Main()
-    + DisplayMe
-
-class Journal {
     - entries : List<Entry>
     - prompts : List<string>
 
-    + AddEntry()
-    + DisplayEntries()
-    + SaveToFile()
-    + LoadFromFile()
+    + addEntry()
+    + displayEntries()
+    + saveToFile()
+    + loadFromFile()
 }
 
 class Entry
@@ -23,7 +18,13 @@ class Entry
     - response : string
 }
 
+class RandomPrompt
+{
+    + getRandomPrompt()
+}
+
 Program --> Journal
-Journal "1" --> "*" Entry
+Journal --> Entry
+Entry --> RandomPrompt
 
 @enduml
