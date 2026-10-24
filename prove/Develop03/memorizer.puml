@@ -1,0 +1,47 @@
+@startuml journal
+
+class Program
+{
+    + Main()
+    + DisplayMenu()
+}
+
+class Scripture
+{
+    - _scripture : List<word>
+    - _scriptureReference : Reference
+
+    + Scripture(string reference, string scripture)
+    + hideRandomWords()
+    + isCompletelyHidden() : bool
+    + getDisplayText : string
+}
+
+class Word
+{
+    - _test : string
+    - _isHidden : bool
+
+    + Word(string word)
+    + hideWord()
+    + isHidden() : bool
+    + getDisplayText() : string
+}
+
+class Reference
+{
+    - _book
+    - _chapter
+    - _startVerse
+    - _endVerse
+
+    + Reference(string book, int chapter, int startVerse)
+    + Refefence(string book, int chapter, int startVerse, int endVerse)
+    + getReference() : string
+}
+
+Program --> Scripture
+Scripture --> Word
+Scripture --> Reference
+
+@enduml
