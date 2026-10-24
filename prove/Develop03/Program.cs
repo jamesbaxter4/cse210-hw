@@ -1,6 +1,8 @@
 using System;
 using Microsoft.Win32.SafeHandles;
 
+// exceeding requirements 
+// added scripture library and a random selection feature
 class Program
 {
     static void Main(string[] args)

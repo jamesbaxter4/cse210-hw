@@ -2,8 +2,8 @@ using System;
 
 public class Word
 {
-    public string _text;
-    public bool _isHidden;
+    private string _text;
+    private bool _isHidden;
 
     public Word(string text)
     {

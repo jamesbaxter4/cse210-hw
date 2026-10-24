@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class Scripture
 {
-    public Reference _scriptureReference;
-    public List<Word> _scripture;
+    private Reference _scriptureReference;
+    private List<Word> _scripture;
 
     public Scripture(Reference reference, string scripture)
     {
