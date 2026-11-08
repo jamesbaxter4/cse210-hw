@@ -1,0 +1,54 @@
+@startuml MindfulnessProgram
+
+class Program {
+    + Main() : void
+}
+
+abstract class Activity {
+    - _countdownDuration.int
+
+    + Activity() : void
+    + DisplayStartMessage() : string
+    + Countdown() : int
+    + LoadingScreen() : void
+    + DisplayEndMessage() : string
+    + GetRandomMessage() : string
+    + RandomPrompt() : string
+}
+
+class BreathingActivity {
+    + BreathingActivity()
+    + Run() : void
+    - BreatheIn() : void
+    - BreatheOut() : void
+}
+
+class ReflectingActivity {
+    - _prompts : List<string>
+    - _questions : List<string>
+
+    + ReflectingActivity()
+    + Run() : void
+    - GetRandomPrompt() : string
+    - GetRandomQuestion() : string
+    - DisplayPrompt() : void
+    - DisplayQuestions() : void
+}
+
+class ListingActivity {
+    - _prompts : List<string>
+    - _responses : List<string>
+
+    + ListingActivity()
+    + Run() : void
+    - GetRandomPrompt() : string
+    - GetListFromUser() : void
+    - DisplayCount() : void
+}
+
+Program ..> Activity : creates and runs
+Activity <|-- BreathingActivity
+Activity <|-- ReflectingActivity
+Activity <|-- ListingActivity
+
+@enduml
