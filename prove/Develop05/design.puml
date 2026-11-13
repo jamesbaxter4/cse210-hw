@@ -1,0 +1,74 @@
+@startuml
+
+class Program 
+{
+    - _goalManager: GoalManager
+    + Main(args: string[]): void
+    + DisplayMenu(): void
+}
+
+abstract class Goal 
+{
+    # _shortName: string
+    # _description: string
+    # _points: int
+
+    + Goal(name: string, description: string, points: int)
+    + {abstract} RecordEvent(): int
+    + {abstract} IsComplete(): bool
+    + {abstract} GetStringRepresentation(): string
+    + GetShortName(): string
+    + GetDescription(): string
+    + GetPoints(): int
+    + AddPoints(): int
+    + SetPoints(): int
+}
+
+class SimpleGoal 
+{
+    + SimpleGoal(name: string, description: 
+        string, points: int)
+    + RecordEvent(): int
+    + IsComplete(): bool
+}
+
+class EternalGoal 
+{
+    + EternalGoal(name: string, description: 
+        string, points: int)
+    + RecordEvent(): int
+    + IsComplete(): bool
+}
+
+class ChecklistGoal 
+{
+    - _amountCompleted: int
+    - _target: int
+    - _bonus: int
+    + ChecklistGoal(name: string, description: 
+        string, points: int, target: int, bonus: int)
+    + RecordEvent(): int
+    + GetDetailsString(): string
+    + IsComplete(): bool
+}
+
+class GoalManager 
+{
+    - _goals: List<Goal>
+    - _score: int
+    + GoalManager()
+    + Start(): void
+    + ListGoalNames(): void
+    + ListGoalDetails(): void
+    + CreateGoal(): void
+    + RecordEvent(): void
+    + SaveGoals(): void
+    + LoadGoals(): void
+}
+
+Goal <|-- SimpleGoal
+Goal <|-- EternalGoal
+Goal <|-- ChecklistGoal
+GoalManager o-- Goal : manages
+
+@enduml
